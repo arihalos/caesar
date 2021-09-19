@@ -1,0 +1,51 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int checkkey(string keykay);
+int key;
+
+
+int main(int argc, string argv[])
+
+   {
+
+        if (argc == 2)
+            {
+                if(checkkey(argv[1]))
+                   {
+                      printf("Usage: ./caesar key\n");
+                      return 1;
+                   }
+                else printf("%i \n",key);
+            }
+            else
+                {
+                printf("Usage: ./caesar key\n");
+                return 1;
+                }
+    }
+
+
+int checkkey(string keykay)
+    {
+        int haba = strlen (keykay);
+        int val = 0;
+        for (int i=0; i < haba; i++)
+            {
+                if(isdigit(keykay[i]))
+                    {
+                    val = val*10 + (keykay[i] - '0');
+                    }
+                else
+                    {
+                        val = 0;
+                        i = haba;
+                    }
+            }
+            key = val;
+        if (val>0) return 0;
+        else return 1;
+
+    }
